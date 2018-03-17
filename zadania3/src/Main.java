@@ -89,7 +89,7 @@ public class Main {
 ////         v2.refuel(5);  // blad
 //        ((Car)v2).refuel(10);
 
-        Vehicle v= new Vehicle("Pojazd", 3);
+        Vehicle v = new Vehicle("Pojazd", 3);
 
         Vehicle vs = new Car("Pojazd2");
         vs.startEngine();
@@ -98,21 +98,62 @@ public class Main {
         cs.startEngine();
 
         SUV s = new SUV("Terenowka");
-        ((SUV)cs).wlacz4x4();
+        ((SUV) cs).wlacz4x4();
 
         if (s instanceof Car) System.out.println("OK");
+        else System.out.println("NO");
         if (s instanceof Vehicle) System.out.println("OK");
+        else System.out.println("NO");
         if (cs instanceof SUV) System.out.println("OK");
-        if (v instanceof SUV)  System.out.println("OK"); else System.out.println("NO");
-        if (vs instanceof SUV)  System.out.println("OK"); else System.out.println("NO");
-        ((SUV)cs).wlacz4x4();
+        else System.out.println("NO");
+        if (v instanceof SUV) System.out.println("OK");
+        else System.out.println("NO");
+        if (vs instanceof SUV) System.out.println("OK");
+        else System.out.println("NO");
+        ((SUV) cs).wlacz4x4();
 //        s = v;
         v = s;
-//        ((SUV)v).wlacz4x4();
+        ((SUV) v).wlacz4x4();
         Vehicle v99 = s;
-//        ((SUV)v99).refuel(5);
-//        Car c1 = (Car) v1;
+        ((SUV) v99).refuel(5);
 
+        Car c1 = (Car) v;
+        s.v.startEngine();
+        s.c.startEngine();
+
+        Pies p = new Pies("Azor");
+        Kot k = new Kot("Tom");
+
+        p.speak();
+        System.out.println(p.getName());
+        System.out.println(p.getType());
+        System.out.println(p.getVoice());
+        k.speak();
+        Zwierz z = new Pies("Burek");
+        Zwierz z1 = new Kot("Filemon");
+        System.out.println(z);
+        z1.speak();
+
+//        GoldFish gf1 = new GoldFish(0.4, 6000, true, 9, true, "Gruba ryba");
+//        GoldFish gf2 = new GoldFish(0.1, 10, false, 6, true, "Rybcia");
+//        GoldFish gf3 = new GoldFish();
+////        GoldFish gf3 = new Fish();
+//        System.out.println(gf1);
+//        System.out.println(gf2);
+//        System.out.println(gf3);
+        Animal[] anim = new Animal[10];
+        anim[0] = new GoldFish(0.1, 10, false, 6, true, "Ryba 0");
+        anim[1] = new GoldFish(4, 1000, true, 4, true, "Ryba 1");
+        anim[2] = new GoldFish(0.3, 200, false, 8, true, "Ryba 2");
+        anim[3] = new Human(10, 120000, true, 2, false, "Człowiek 3");
+        anim[4] = new Human(10, 120000, true, 2, false, "Człowiek 4");
+        anim[5] = new Human(10, 120000, true, 2, false, "Człowiek 5");
+//        System.out.println(anim[0]);
+//        System.out.println(anim[1]);
+//        System.out.println(anim[2]);
+        for(Animal a: anim){
+            System.out.println(a);
+        }
 
     }
 }
