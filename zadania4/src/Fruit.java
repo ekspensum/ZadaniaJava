@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 class Fruit implements Comparable<Fruit>{
 
@@ -33,8 +34,17 @@ class Fruit implements Comparable<Fruit>{
     }
 
     public int compareTo(Fruit compareFruit) {
-        int porownajOwoce = fruitName.compareTo(compareFruit.fruitName);
-        return porownajOwoce;
+        int porownajIlosc = quantity - compareFruit.quantity;
+        return -porownajIlosc;
+    }
+}
+
+class PorownajIlosc implements Comparator<Fruit> {
+
+    @Override
+    public int compare(Fruit o1, Fruit o2) {
+        int porownajIlosc = o1.getQuantity() - o2.getQuantity();
+        return porownajIlosc;
     }
 }
 
@@ -54,9 +64,18 @@ class SortFruitObject{
         fruits[2]=orange;
         fruits[3]=banana;
 
+        System.out.println("Malejąco wg ilości: ");
         Arrays.sort(fruits);
 
         int i=0;
+        for(Fruit temp: fruits){
+            System.out.println("fruits " + ++i + " : " + temp.getFruitName() + ", Quantity : " + temp.getQuantity());
+        }
+
+        System.out.println("\nRosnąco wg ilości: ");
+        Arrays.sort(fruits, new PorownajIlosc());
+
+        i=0;
         for(Fruit temp: fruits){
             System.out.println("fruits " + ++i + " : " + temp.getFruitName() + ", Quantity : " + temp.getQuantity());
         }
