@@ -11,6 +11,7 @@ public class LiczZnaki {
         File f = new File("jakisPlik.txt");
         int tab[] = new int[5];
         String temp;
+        String [] tabS = new String[100];
         Scanner fs, fs2, fs3, fs4, fs5;
         char[] znaki;
         StringTokenizer st;
@@ -41,8 +42,9 @@ public class LiczZnaki {
                     System.out.println(dopasuj.group());
                     tab[4]++;
                 }
-
-                System.out.println(fs5.nextLine());
+                temp = fs5.nextLine();
+                tabS = temp.split("\\s");
+                tab[4] += tabS.length;
             }
 
             fs.close();
@@ -58,6 +60,8 @@ public class LiczZnaki {
         System.out.println("Liczba białych znaków: " + (tab[2] + tab[0]));
         System.out.println("Liczba słów: " + tab[3]);
         System.out.println("Cwiczenia regex: "+tab[4]);
+//        for (int i=0; i<tabS.length; i++)
+//            System.out.println(tabS[i]);
 
     }
 }
