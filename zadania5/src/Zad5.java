@@ -10,10 +10,9 @@ public class Zad5 {
     public void szukaj(String nazwaPlikWe, String nazwaPlikWy, String slowo) throws IOException {
         File plikWe = new File(nazwaPlikWe);
         FileWriter plikWy = new FileWriter(nazwaPlikWy, true);
-        Scanner we;
+        Scanner we = new Scanner(plikWe);
         String linia;
         try {
-            we = new Scanner(plikWe);
             for (Integer i = 1; we.hasNextLine(); i++) {
                 linia = we.nextLine();
                 if (linia.matches(".*"+slowo+".*")){
@@ -21,10 +20,11 @@ public class Zad5 {
                     System.out.println(i.toString() + ": " + linia);
                 }
             }
-            we.close();
-            plikWy.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } finally {
+            we.close();
+            plikWy.close();
         }
     }
 
